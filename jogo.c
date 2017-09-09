@@ -1,5 +1,5 @@
 #include "prot_func.h"
-#include "Sortear.h"
+#include "sort.h"
 
 //int Jogar() ALTERADO
 int main(){
@@ -15,7 +15,8 @@ int main(){
     char j_correto[4];          // VETOR COM AS RESPOSTAS CORRETAS DO JOGO.
     char j_opcao;               // VARIAVEL PARA SELEÇÃO DO USUARIO.
     char j_jogo[10][8];         // MATRIX PARA O JOGO.
-    Sortear(&j_correto[0]);     // CHAMA FUNÇÃO SORTEAR DANDO PONTEIRO PARA O J_CORRETO
+
+    sort(&j_correto[0]);     // CHAMA FUNÇÃO SORTEAR DANDO PONTEIRO PARA O J_CORRETO
 
     for( j_l2 = 0; j_l2 != 10; j_l2++ ){
         for( j_c2 = 0; j_c2 != 8; j_c2 ++ ){

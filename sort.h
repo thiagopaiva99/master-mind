@@ -1,6 +1,6 @@
 #include "prot_func.h"
 
-char Sortear(char *s_correto)//PEGANDO PONTEIRO DE J_CORRETO PARA PREENCHER COM OS DADOS ALEATORIOS.
+char sort(char *s_correto)//PEGANDO PONTEIRO DE J_CORRETO PARA PREENCHER COM OS DADOS ALEATORIOS.
 {
 
 char s_resultado;//Variavel que recebe ponteiro.
