@@ -1,4 +1,4 @@
-#include "prot_func.h"
+#include "functions.h"
 
 char sort(char *s_correto)//PEGANDO PONTEIRO DE J_CORRETO PARA PREENCHER COM OS DADOS ALEATORIOS.
 {

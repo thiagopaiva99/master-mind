@@ -1,34 +1,51 @@
-#include "prot_func.h"
+#include "functions.h"
 
 //INICIAR JOGO
 void jogar(){
+    char username[15];
+    int can_play = 0;
 
-    char apelido[15];
-    int iresultado=0;
-
-    //setlocale(LC_ALL, "Portuguese");//para acentuação
 	system("clear");
-	printf("## INICIANDO JOGO ##\n");
-	printf("--------------------\n\n");
 
-	printf("----------------------------------------\n");
-	printf("- É NECESSARIO ACESSAR COM SEU APELIDO -\n");
-	printf("----------------------------------------\n");
+	printf("+--------------------------------------+\n");
+	printf("|                                      |\n");
+	printf("|     INFORME O USUÁRIO PARA JOGAR     |\n");
+	printf("|                                      |\n");
+	printf("+--------------------------------------+\n");
 
-	printf("Seu apelido.: ");
-	scanf("%s",apelido);
-	iresultado = consulta_apelido(apelido);//função para consultar no arquivo o apelido
+	printf("\nNome de Usuário: ");
+	scanf("%s", username);
+	can_play = consulta_apelido( username );
 
-	if(iresultado != 1){
-        	printf("\n *Apelido não cadastrado!!\n\n");
-		getc(stdin); 
-		getc(stdin);
-		//main();//Volta ao menu
-		
-	} else {
-		printf("\nApelido ok!!\n\n");
-		getc(stdin);
-		getc(stdin);
-		jogo();//CHAMA JOGO
-	}
+	if ( can_play != 1 ) getOut();
+	if ( can_play == 1 ) play();
+}
+
+void play(){
+    printf("+--------------------------------------+\n");
+	printf("|                                      |\n");
+	printf("|          USUÁRIO CADASTRADO!         |\n");
+	printf("|                                      |\n");
+	printf("+--------------------------------------+\n");
+
+	printf("\nPressione qualquer tecla para inciar o jogo!");
+
+    getc(stdin);
+    getc(stdin);
+    jogo();
+}
+
+void getOut(){
+    int will_register = 2;
+
+    printf("+--------------------------------------+\n");
+	printf("|                                      |\n");
+	printf("|     USUÁRIO NÃO CADASTRO NO JOGO     |\n");
+	printf("|                                      |\n");
+	printf("+--------------------------------------+\n");
+
+	printf("\nDeseja se cadastrar agora => [ 1 ] Sim [ 2 ] Não: ");
+    scanf("%d", &will_register);
+
+    if ( will_register == 1 ) novo_jogador();
 }

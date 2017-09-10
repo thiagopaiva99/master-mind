@@ -1,8 +1,8 @@
-#include "prot_func.h"
+#include "functions.h"
 #include "sort.h"
 
 //int Jogar() ALTERADO
-int main(){
+int jogo(){
     int coluna      = 0,
         linha       = 0,
         ganhar      = 0,
@@ -34,7 +34,9 @@ int main(){
             printf( "\n|                      MASTERMIND                    |" );
             printf( "\n|                           |                        |" );
             printf( "\n|       TENTATIVAS          |         DICAS          |" );
-            printf( "\n|                                                    |" );
+            printf( "\n|                           |                        |" );
+            printf( "\n|----------------------------------------------------|" );
+            printf( "\n|                           |                        |" );
 
             for( linha = 0; linha != 10; linha++ ) { //LAÇO PARA IMPRIMIR NA TELA (LINHAS)
                 printf( "\n" );
@@ -47,7 +49,7 @@ int main(){
                         if( coluna != 4 && coluna != 7 )    printf(" [%c] ",         jogo[ linha ][ coluna ] );         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                     } else {
                         if( coluna == 7 )                   printf("  [%c]  |",      jogo[ linha ][ coluna ] );           //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
-                        if( coluna == 4 )                   printf("     |    [ ]",  jogo[ linha ][ coluna ]);      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna == 4 )                   printf("     |    [%c]",  jogo[ linha ][ coluna ]);      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                         if( coluna != 4 && coluna != 7 )    printf("  [%c]",         jogo[ linha ][ coluna ]);         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                     }
                 }

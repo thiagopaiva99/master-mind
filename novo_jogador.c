@@ -1,38 +1,45 @@
-#include "prot_func.h"
+#include "functions.h"
 
-struct jogador
-{
-	char apelido[15];
-	char nome[20];
-	char idade[2];
-} jog;
+struct player {
+	char username[15];
+	char name[20];
+	char age[2];
+} player;
 
 //CADASTRO DO JOGADOR
 void novo_jogador(void){
-	
 	FILE *bd;
-	char *dataBase = "base.txt";
-	
-	if((bd=fopen(dataBase, "a+t"))==NULL){
-		printf("\n O arquivo nao pode ser aberto!\n");
-		exit(1);
-	}	
+	char *dataBase = "players.txt";
 
-	system("clear");	
-	fseek(bd,0L, SEEK_END);
+	if( ( bd = fopen( dataBase, "a+t" ) ) == NULL ) terminate();
 
-	printf("## CADASTRO DE JOGADOR ##\n");
-	printf("-------------------------\n");
-	//setbuf(stdin,NULL);
-	printf("\nApelido:"); scanf("%s",jog.apelido);
-	Up(jog.apelido);
-	printf("\nNome:"); scanf("%s",jog.nome);
-	Up(jog.nome);
-	printf("\nIdade:"); scanf("%s",jog.idade);
+	system( "clear" );
+	fseek( bd, 0L, SEEK_END );
+
+    printf( "+-----------------------+\n" );
+    printf( "|                       |\n" );
+	printf( "|  CADASTRO DE JOGADOR  |\n" );
+	printf( "|                       |\n" );
+	printf( "+-----------------------+\n" );
+
+    printf( "\nNome: " );
+	scanf(  "%s", player.name );
+	strtoupper( player.name );
+
+	printf( "\nNome de Usuário: " );
+	scanf(  "%s", player.username );
+
+	printf( "\nIdade: " );
+	scanf(  "%s", player.age );
 
 	//INSERE OS DADOS NO ARQUIVO
-	fprintf(bd, "%s:%s:%s\n",jog.apelido,jog.nome,jog.idade);
+	fprintf( bd, "%s:%s:%s\n", player.username, player.name, player.age);
 	printf("\n Cadastro Efetuado\n\n\n");
 
 	fclose(bd);
+}
+
+void terminate(){
+    printf("\n O arquivo nao pode ser aberto!\n");
+    exit(1);
 }
