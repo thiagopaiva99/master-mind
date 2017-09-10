@@ -3,9 +3,9 @@
 
 //int Jogar() ALTERADO
 int main(){
-    int j_c         = 0,
-        j_l         = 0,
-        j_ganhar    = 0,
+    int coluna      = 0,
+        linha       = 0,
+        ganhar      = 0,
         jogada      = 0,
         j_l2        = 0,
         j_c2        = 0,
@@ -36,19 +36,19 @@ int main(){
             printf( "\n|       TENTATIVAS          |         DICAS          |" );
             printf( "\n|                                                    |" );
 
-            for( j_l = 0; j_l != 10; j_l++ ) { //LAÇO PARA IMPRIMIR NA TELA (LINHAS)
+            for( linha = 0; linha != 10; linha++ ) { //LAÇO PARA IMPRIMIR NA TELA (LINHAS)
                 printf( "\n" );
-                printf( "| %i", j_l + 1 );
+                printf( "| %i", linha + 1 );
 
-                for( j_c = 0; j_c != 8; j_c++ ) { //LAÇO PARA IMPRIMIR NA TELA (COLUNAS)
-                    if( j_l == 9 ) { //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
-                        if( j_c == 7 )              printf(" [%c]  |", jogo[j_l][j_c],186);            //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
-                        if( j_c == 4 )              printf("    |    [ ] ",186, jogo[j_l][j_c]);      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
-                        if( j_c != 4 && j_c != 7 )  printf(" [%c] ", jogo[j_l][j_c]);         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                for( coluna = 0; coluna != 8; coluna++ ) { //LAÇO PARA IMPRIMIR NA TELA (COLUNAS)
+                    if( linha == 9 ) { //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna == 7 )                   printf(" [%c]  |",       jogo[ linha ][ coluna ] );            //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna == 4 )                   printf("    |    [%c] ", jogo[ linha ][ coluna ] );      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna != 4 && coluna != 7 )    printf(" [%c] ",         jogo[ linha ][ coluna ] );         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                     } else {
-                        if( j_c == 7 )              printf("  [%c]  |", jogo[j_l][j_c],186);           //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
-                        if( j_c == 4 )              printf("     |    [ ]", jogo[j_l][j_c]);      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
-                        if( j_c != 4 && j_c != 7 )  printf("  [%c]", jogo[j_l][j_c]);         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna == 7 )                   printf("  [%c]  |",      jogo[ linha ][ coluna ] );           //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna == 4 )                   printf("     |    [ ]",  jogo[ linha ][ coluna ]);      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna != 4 && coluna != 7 )    printf("  [%c]",         jogo[ linha ][ coluna ]);         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                     }
                 }
             }
@@ -88,33 +88,33 @@ int main(){
                 opcao = ' ';
             }
 
-            for( j_c = 0; j_c != 4; j_c++ ) { //LAÇO PARA A ANALIZE E PREENCHIMENTO DAS DICAS.
-                if(j_c==0) { //PASSANDO A ESCOLHA 1 EM CADA CASA.
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 0 ] ) jogo[ jogada ][ j_c + 4 ] = 'P';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 1 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 2 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 3 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
+            for( coluna = 0; coluna != 4; coluna++ ) { //LAÇO PARA A ANALIZE E PREENCHIMENTO DAS DICAS.
+                if( coluna == 0 ) { //PASSANDO A ESCOLHA 1 EM CADA CASA.
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 0 ] ) jogo[ jogada ][ coluna + 4 ] = 'P';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 1 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 2 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 3 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
                 }
 
-                if(j_c==1) { //PASSANDO A ESCOLHA 2 EM CADA CASA.
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 0 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 1 ] ) jogo[ jogada ][ j_c + 4 ] = 'P';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 2 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 3 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
+                if( coluna == 1 ) { //PASSANDO A ESCOLHA 2 EM CADA CASA.
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 0 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 1 ] ) jogo[ jogada ][ coluna + 4 ] = 'P';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 2 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 3 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
                 }
 
-                if(j_c==2) { //PASSANDO A ESCOLHA 3 EM CADA CASA.
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 0 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 1 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 2 ] ) jogo[ jogada ][ j_c + 4 ] = 'P';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 3 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
+                if( coluna == 2 ) { //PASSANDO A ESCOLHA 3 EM CADA CASA.
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 0 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 1 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 2 ] ) jogo[ jogada ][ coluna + 4 ] = 'P';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 3 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
                 }
 
-                if(j_c==3) { //PASSANDO A ESCOLHA 4 EM CADA CASA.
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 0 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 1 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 2 ] ) jogo[ jogada ][ j_c + 4 ] = 'B';
-                    if ( jogo[ jogada ][ j_c ] == respostas[ 3 ] ) jogo[ jogada ][ j_c + 4 ] = 'P';
+                if( coluna == 3 ) { //PASSANDO A ESCOLHA 4 EM CADA CASA.
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 0 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 1 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 2 ] ) jogo[ jogada ][ coluna + 4 ] = 'B';
+                    if ( jogo[ jogada ][ coluna ] == respostas[ 3 ] ) jogo[ jogada ][ coluna + 4 ] = 'P';
                 }
             }
         }
@@ -131,7 +131,7 @@ int main(){
              system("sleep 10");
              system("clear");
 
-             j_ganhar = 1;
+             ganhar = 1;
              return jogada;
              jogada = 10;
         }
@@ -139,7 +139,7 @@ int main(){
     }
 
     // CASO FECHE O LAÇO DOS 10 SEM GANHAR IRA EXIBIR O DESENHO E RETORNAR O VALOR DAS JOGADAS.
-    if(j_ganhar==0) {
+    if( ganhar == 0 ) {
         system("clear");
 
         system("sleep 10");
