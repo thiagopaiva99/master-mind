@@ -7,7 +7,7 @@
 //FUNCOES
 void jogar(void);
 void novo_jogador(void);
-int jogo();
+int jogo( char username[20] );
 char sort(char *s_correto);
 void perfil(void);
 void ranking(void);

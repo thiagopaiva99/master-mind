@@ -40,6 +40,6 @@ void novo_jogador(void){
 }
 
 void terminate(){
-    printf("\n O arquivo nao pode ser aberto!\n");
+    printf("\nO arquivo nao pode ser aberto!\n");
     exit(1);
 }

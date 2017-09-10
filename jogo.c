@@ -2,7 +2,7 @@
 #include "sort.h"
 
 //int Jogar() ALTERADO
-int jogo(){
+int jogo( char username[20] ){
     int coluna      = 0,
         linha       = 0,
         ganhar      = 0,
@@ -11,6 +11,9 @@ int jogo(){
         j_c2        = 0,
         j_aux       = 0,
         dica        = 0;//VARIAVEIS
+
+    FILE *db;
+	char *ranking = "ranking.txt";
 
     char respostas[4];          // VETOR COM AS RESPOSTAS CORRETAS DO JOGO.
     char opcao;               // VARIAVEL PARA SELEÇÃO DO USUARIO.
@@ -130,7 +133,17 @@ int jogo(){
         ){
              system("clear");
 
-             system("sleep 10");
+             if( ( db = fopen( ranking, "a+t" ) ) == NULL ) {
+                printf("\nO arquivo nao pode ser aberto!\n");
+                exit(1);
+             }
+
+             fseek( db, 0L, SEEK_END );
+
+             //INSERE OS DADOS NO ARQUIVO
+             fprintf( db, "%s:%d\n", username, jogada );
+
+             fclose(db);
              system("clear");
 
              ganhar = 1;

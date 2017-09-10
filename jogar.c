@@ -18,10 +18,10 @@ void jogar(){
 	can_play = consulta_apelido( username );
 
 	if ( can_play != 1 ) getOut();
-	if ( can_play == 1 ) play();
+	if ( can_play == 1 ) play( username );
 }
 
-void play(){
+void play( char username[20] ){
     printf("+--------------------------------------+\n");
 	printf("|                                      |\n");
 	printf("|          USUÁRIO CADASTRADO!         |\n");
@@ -32,7 +32,8 @@ void play(){
 
     getc(stdin);
     getc(stdin);
-    jogo();
+
+    jogo( username );
 }
 
 void getOut(){
