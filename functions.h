@@ -19,8 +19,4 @@ void sair(void);
 void abrir(char *tipo);
 
 // main menu functions
-void perfil();
-void ranking();
-void comojogar();
-void sair();
 void choise(char op);

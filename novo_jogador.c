@@ -11,7 +11,7 @@ void novo_jogador(void){
 	FILE *bd;
 	char *dataBase = "players.txt";
 
-	if( ( bd = fopen( dataBase, "a+t" ) ) == NULL ) terminate();
+	if( ( bd = fopen( dataBase, "a+t" ) ) == NULL ) return terminate();
 
 	system( "clear" );
 	fseek( bd, 0L, SEEK_END );

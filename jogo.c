@@ -7,8 +7,8 @@ int jogo( char username[20] ){
         linha       = 0,
         ganhar      = 0,
         jogada      = 0,
-        j_l2        = 0,
-        j_c2        = 0,
+        linha2      = 0,
+        coluna2     = 0,
         j_aux       = 0,
         dica        = 0;//VARIAVEIS
 
@@ -21,11 +21,11 @@ int jogo( char username[20] ){
 
     sort( &respostas[0] );     // CHAMA FUNÇÃO SORTEAR DANDO PONTEIRO PARA O J_CORRETO
 
-    for( j_l2 = 0; j_l2 != 10; j_l2++ ){
-        for( j_c2 = 0; j_c2 != 8; j_c2 ++ ){
+    for( linha2 = 0; linha2 != 10; linha2++ ){
+        for( coluna2 = 0; coluna2 != 8; coluna2 ++ ){
 
-            if ( j_c2 <= 3 ) jogo[j_l2][j_c2] = ' ';
-            else jogo[j_l2][j_c2] = ' ';
+            if ( coluna2 <= 3 ) jogo[ linha2 ][ coluna2 ] = ' ';
+            else                jogo[ linha2 ][ coluna2 ] = ' ';
 
         }
     }  //FIM DO LAÇO PARA COLOCAR ESPAÇOS NOS CAMPOS.
@@ -52,7 +52,7 @@ int jogo( char username[20] ){
                         if( coluna != 4 && coluna != 7 )    printf(" [%c] ",         jogo[ linha ][ coluna ] );         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                     } else {
                         if( coluna == 7 )                   printf("  [%c]  |",      jogo[ linha ][ coluna ] );           //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
-                        if( coluna == 4 )                   printf("     |    [%c]",  jogo[ linha ][ coluna ]);      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
+                        if( coluna == 4 )                   printf("     |    [%c]", jogo[ linha ][ coluna ]);      //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                         if( coluna != 4 && coluna != 7 )    printf("  [%c]",         jogo[ linha ][ coluna ]);         //IF APENAS PARA IMPRIMIR ORGANIZADAMENTE OS DADOS
                     }
                 }
