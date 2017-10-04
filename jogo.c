@@ -143,8 +143,16 @@ int jogo( char username[20] ){
              //INSERE OS DADOS NO ARQUIVO
              fprintf( db, "%s:%d\n", username, jogada );
 
-             fclose(db);
-             system("clear");
+             fclose( db );
+             system( "clear" );
+
+             printf( "+-----------------------+\n" );
+             printf( "|                       |\n" );
+             printf( "|        YOU WIN        |\n" );
+             printf( "|                       |\n" );
+             printf( "+-----------------------+\n" );
+
+             system( "mpg321 -g 80 win.mp3 --quiet" );
 
              ganhar = 1;
              return jogada;
@@ -157,7 +165,15 @@ int jogo( char username[20] ){
     if( ganhar == 0 ) {
         system("clear");
 
-        system("sleep 10");
+        printf( "+-----------------------+\n" );
+        printf( "|                       |\n" );
+        printf( "|         YOU LOSE      |\n" );
+        printf( "|                       |\n" );
+        printf( "+-----------------------+\n" );
+
+        system( "mpg321 -g 80 lose.mp3 --quiet" );
+
+        system("sleep 2");
         system("clear");
         return 11;
     }

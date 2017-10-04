@@ -27,8 +27,8 @@ void main(void) {
             printf( "|                           |\n" );
             printf( "+---------------------------+\n\n" );
             printf( " Selecione a opção desejada: \n" );
-            printf( "\n [ N ] Novo jogador" );
             printf( "\n [ J ] Jogar" );
+            printf( "\n [ N ] Novo jogador" );
             printf( "\n [ P ] Perfil" );
             printf( "\n [ R ] Ranking" );
             printf( "\n [ C ] Como Jogar" );

@@ -41,6 +41,7 @@ void jogar(){
 
 // funcao que se encarrega de chamar o jogo
 void play( char username[20] ){
+    system( "clear" );
 
     // printa o header bonitinho
     printf("+--------------------------------------+\n");
